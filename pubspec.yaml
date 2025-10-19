@@ -63,6 +63,13 @@ flutter:
     - assets/images/doctors/
     - assets/images/avatar/
     - assets/images/avatar/user_avatar.jpg
+    - assets/images/services/
+    - assets/images/services/book_appointment.jpg
+    - assets/images/services/video_consult.jpg
+    - assets/images/services/medicines.jpg
+    - assets/images/services/lab_tests.jpg
+    - assets/images/services/emergency.png
+    
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

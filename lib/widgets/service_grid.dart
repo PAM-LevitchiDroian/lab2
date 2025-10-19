@@ -7,33 +7,89 @@ class ServiceGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final services = [
-      {'title': 'Book Appointment', 'icon': '💻'},
-      {'title': 'Instant Video Consult', 'icon': '👨‍⚕️'},
-      {'title': 'Medicines', 'icon': '💊'},
-      {'title': 'Lab Tests', 'icon': '🔬'},
-      {'title': 'Emergency', 'icon': '🚨'},
+      {
+        'title': 'Book Appointment',
+        'imagePath': 'assets/images/services/book_appointment.jpg',
+      },
+      {
+        'title': 'Instant Video Consult',
+        'imagePath': 'assets/images/services/video_consult.jpg',
+      },
+      {
+        'title': 'Medicines',
+        'imagePath': 'assets/images/services/medicines.jpg',
+      },
+      {
+        'title': 'Lab Tests',
+        'imagePath': 'assets/images/services/lab_tests.jpg',
+      },
+      {
+        'title': 'Emergency',
+        'imagePath': 'assets/images/services/emergency.png',
+      },
     ];
 
     return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: GridView.builder(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          childAspectRatio: 0.85,
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-        ),
-        itemCount: services.length,
-        itemBuilder: (context, index) {
-          final service = services[index];
-          return ServiceCard(
-            title: service['title']!,
-            icon: service['icon']!,
-            isEmergency: service['title'] == 'Emergency',
-          );
-        },
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        children: [
+          // Rând 1: 2 carduri mari (Book Appointment și Video Consult)
+          Row(
+            children: [
+              Expanded(
+                child: ServiceCard(
+                  title: services[0]['title']!,
+                  imagePath: services[0]['imagePath']!,
+                  isEmergency: false,
+                  height: 120,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: ServiceCard(
+                  title: services[1]['title']!,
+                  imagePath: services[1]['imagePath']!,
+                  isEmergency: false,
+                  height: 120,
+                ),
+              ),
+            ],
+          ),
+          
+          const SizedBox(height: 12),
+          
+          // Rând 2: 3 carduri mai mici (Medicines, Lab Tests, Emergency)
+          Row(
+            children: [
+              Expanded(
+                child: ServiceCard(
+                  title: services[2]['title']!,
+                  imagePath: services[2]['imagePath']!,
+                  isEmergency: false,
+                  height: 110,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: ServiceCard(
+                  title: services[3]['title']!,
+                  imagePath: services[3]['imagePath']!,
+                  isEmergency: false,
+                  height: 110,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: ServiceCard(
+                  title: services[4]['title']!,
+                  imagePath: services[4]['imagePath']!,
+                  isEmergency: true,
+                  height: 110,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
