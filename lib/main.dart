@@ -18,15 +18,6 @@ class MedicalApp extends StatelessWidget {
       theme: AppTheme.lightTheme, 
       debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
-      onGenerateRoute: (RouteSettings settings) {
-        if (settings.name == '/doctor-detail') {
-          final doctor = settings.arguments as Doctor; 
-          return MaterialPageRoute(
-            builder: (_) => DoctorDetailScreen(doctor: doctor),
-          );
-        }
-        return null;
-      },
     );
   }
 }
